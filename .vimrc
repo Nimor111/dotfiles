@@ -44,10 +44,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'eagletmt/ghcmod-vim'
-Plugin 'Shougo/vimproc'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'Shougo/vimproc.vim'
 
 "set airline theme
 let g:airline_theme='bubblegum'
@@ -67,7 +67,7 @@ let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_ruby_checkers = ['rubocop']
 
 "for colorscheme
-colorscheme obsidian 
+colorscheme molokai 
 
 "column at col 80
 set colorcolumn=80
@@ -106,10 +106,22 @@ let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 
+" pretty self explanatory
 set cmdheight=2
 set pastetoggle=<F12>
 
+" map copying and selecting whole text - windows like
 vnoremap <C-c> "+y
 nnoremap <C-a> ggVG
 
-set clipboard=unnamedplus,autoselect
+" sth to do with copying to outside vim
+" set clipboard=unnamedplus
+"
+" let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+" let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+" let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+" let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+" let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+" let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+
+let g:haskell_classic_highlighting = 1
