@@ -35,8 +35,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "plugins
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-commentary'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-endwise'
 Plugin 'scrooloose/syntastic'
@@ -48,6 +48,7 @@ Plugin 'eagletmt/neco-ghc'
 Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/neocomplete.vim'
 
 "set airline theme
 let g:airline_theme='bubblegum'
@@ -67,7 +68,12 @@ let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_ruby_checkers = ['rubocop']
 
 "for colorscheme
+" set background=light
+" let g:solarized_termcolors=256
 colorscheme molokai 
+
+" map change background
+" map <Leader>bg :let &colorscheme = ( &colorscheme == "molokai" ? "solarized" : "molokai" )<CR>
 
 "column at col 80
 set colorcolumn=80
@@ -125,3 +131,7 @@ nnoremap <C-a> ggVG
 " let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 
 let g:haskell_classic_highlighting = 1
+
+let g:neocomplete#enable_at_startup = 1
+
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
