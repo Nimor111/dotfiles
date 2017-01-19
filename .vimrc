@@ -49,6 +49,10 @@ Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'morhetz/gruvbox'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'jiangmiao/auto-pairs'
 
 "set airline theme
 let g:airline_theme='bubblegum'
@@ -66,11 +70,12 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_cpp_checkers = ['g++ -std=c++11']
 
 "for colorscheme
-" set background=light
+set background=dark
 " let g:solarized_termcolors=256
-colorscheme molokai 
+colorscheme gruvbox 
 
 " map change background
 " map <Leader>bg :let &colorscheme = ( &colorscheme == "molokai" ? "solarized" : "molokai" )<CR>
@@ -80,10 +85,10 @@ set colorcolumn=80
 highlight colorcolumn ctermbg=DarkGray
 
 "fold stuff
-" augroup vimrc
-" 	  au BufReadPre * setlocal foldmethod=indent
-" 	  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-" augroup END
+augroup vimrc
+	  au BufReadPre * setlocal foldmethod=indent
+	  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
 
 "remove trailing whitespaces on save for specific file types
 autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -135,3 +140,18 @@ let g:haskell_classic_highlighting = 1
 let g:neocomplete#enable_at_startup = 1
 
 " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"
+" called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+	if exists(':NeoCompleteLock')==2
+	      exe 'NeoCompleteLock'
+	endif
+endfunction
+
+" Called once only when the multiple selection is canceled
+" (default <Esc>)
+function! Multiple_cursors_after()
+	if exists(':NeoCompleteUnlock')==2
+		exe 'NeoCompleteUnlock'
+	endif
+endfunction
