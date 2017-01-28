@@ -94,3 +94,7 @@ export PATH="$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH"
 
 # for working python imports $PYTHONPATH:/home/gbojinov/code/101-v5/week10/Cinema:
 export PYTHONPATH=$PYTHONPATH:/home/gbojinov/code/101-v5/week12/Snake/
+export PYTHONPATH=$PYTHONPATH:/home/gbojinov/code/101-v5/week13/HomemadeORM/
+
+# for elixir
+# export PATH="$PATH:/usr/bin/elixir"

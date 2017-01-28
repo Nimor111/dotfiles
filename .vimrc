@@ -1,10 +1,12 @@
-"for Vundle
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "needed for plugin installer pathogen vim
 execute pathogen#infect()
+
+" try font change
+" set guifont=Fira\ Code
 
 "ruler
 set ruler
@@ -19,7 +21,7 @@ filetype plugin indent on
 set nocompatible
 
 "hide files instead of closing them when they have unwritten changes
-set hidden
+" set hidden
 
 "display line numbers on the left
 set number
@@ -53,9 +55,13 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ChrisKempson/Tomorrow-Theme'
+" Plugin 'dag/vim2hs'
+Plugin 'Twinside/vim-haskellConceal'
 
 "set airline theme
-let g:airline_theme='bubblegum'
+let g:airline_theme='gruvbox'
 
 " syntastic settings TODO check
 map <Leader>s :SyntasticToggleMode<CR>
@@ -73,9 +79,13 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_cpp_checkers = ['g++ -std=c++11']
 
 "for colorscheme
-set background=dark
+" set background=dark
 " let g:solarized_termcolors=256
-colorscheme gruvbox 
+" colorscheme solarized 
+colorscheme Tomorrow-Night 
+
+" gruvbox settings
+let g:gruvbox_italic=1
 
 " map change background
 " map <Leader>bg :let &colorscheme = ( &colorscheme == "molokai" ? "solarized" : "molokai" )<CR>
