@@ -2,12 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/gbojinov/.oh-my-zsh
+export ZSH=/home/gmbojinov/.oh-my-zsh
  
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda-mod"
+ZSH_THEME="af-magic"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -93,8 +93,8 @@ eval "$(jump shell zsh)"
 export PATH="$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH"
 
 # for working python imports $PYTHONPATH:/home/gbojinov/code/101-v5/week10/Cinema:
-export PYTHONPATH=$PYTHONPATH:/home/gbojinov/code/101-v5/week12/Snake/
-export PYTHONPATH=$PYTHONPATH:/home/gbojinov/code/101-v5/week13/HomemadeORM/
+export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/101-v5/week12/Snake/
+export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/101-v5/week13/HomemadeORM/
 
 # for elixir
 # export PATH="$PATH:/usr/bin/elixir"

@@ -57,7 +57,6 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ChrisKempson/Tomorrow-Theme'
-" Plugin 'dag/vim2hs'
 Plugin 'Twinside/vim-haskellConceal'
 
 "set airline theme
@@ -81,14 +80,11 @@ let g:syntastic_cpp_checkers = ['g++ -std=c++11']
 "for colorscheme
 " set background=dark
 " let g:solarized_termcolors=256
-" colorscheme solarized 
-colorscheme Tomorrow-Night 
+colorscheme obsidian 
+" colorscheme gruvbox 
 
 " gruvbox settings
 let g:gruvbox_italic=1
-
-" map change background
-" map <Leader>bg :let &colorscheme = ( &colorscheme == "molokai" ? "solarized" : "molokai" )<CR>
 
 "column at col 80
 set colorcolumn=80
