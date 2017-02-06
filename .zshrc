@@ -60,7 +60,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
 export EDITOR='vim'
 else
-export EDITOR='subl'
+export EDITOR='vim'
 fi
 
 # ssh
@@ -82,6 +82,13 @@ alias лс="ls"
 alias цд="cd"
 alias жи="vi"
 alias pw="poweroff"
+alias pmr="python manage.py runserver"
+alias ghcc="ghc -o exe --make"
+
+# SRC_DIRECTORY="$HOME/code/101-v5"
+# venv () {
+#     source $SRC_DIRECTORY/$1/$2/bin/activate;
+# }
 
 # ls colors
 LS_COLORS=$LS_COLORS:'di=1;32:' ; export LS_COLORS

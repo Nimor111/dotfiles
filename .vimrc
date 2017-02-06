@@ -49,7 +49,6 @@ Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'morhetz/gruvbox'
@@ -58,6 +57,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ChrisKempson/Tomorrow-Theme'
 Plugin 'Twinside/vim-haskellConceal'
+Plugin 'pangloss/vim-javascript'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -78,10 +78,10 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_cpp_checkers = ['g++ -std=c++11']
 
 "for colorscheme
-" set background=dark
+set background=dark
 " let g:solarized_termcolors=256
-colorscheme obsidian 
-" colorscheme gruvbox 
+" colorscheme obsidian 
+colorscheme gruvbox 
 
 " gruvbox settings
 let g:gruvbox_italic=1
@@ -91,10 +91,10 @@ set colorcolumn=80
 highlight colorcolumn ctermbg=DarkGray
 
 "fold stuff
-augroup vimrc
-	  au BufReadPre * setlocal foldmethod=indent
-	  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
+" augroup vimrc
+" 	  au BufReadPre * setlocal foldmethod=indent
+" 	  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+" augroup END
 
 "remove trailing whitespaces on save for specific file types
 autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
