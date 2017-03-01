@@ -58,6 +58,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'ChrisKempson/Tomorrow-Theme'
 Plugin 'Twinside/vim-haskellConceal'
 Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -76,6 +78,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_cpp_checkers = ['g++ -std=c++11']
+let g:syntastic_javascript_checkers = ['jshint']
 
 "for colorscheme
 set background=dark
