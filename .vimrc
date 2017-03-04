@@ -60,6 +60,9 @@ Plugin 'Twinside/vim-haskellConceal'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-salve'
 
 "set airline theme
 let g:airline_theme='gruvbox'
