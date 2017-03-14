@@ -63,6 +63,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-salve'
+Plugin 'mattn/emmet-vim'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -86,7 +87,7 @@ let g:syntastic_javascript_checkers = ['jshint']
 "for colorscheme
 set background=dark
 " let g:solarized_termcolors=256
-" colorscheme obsidian 
+" colorscheme molokai 
 colorscheme gruvbox 
 
 " gruvbox settings

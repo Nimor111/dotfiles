@@ -7,7 +7,9 @@ export ZSH=/home/gmbojinov/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="miloshadzic"
+ZSH_THEME="geometry/geometry"
+
+GEOMETRY_PROMPT_PLUGINS=(virtualenv git)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -82,9 +84,12 @@ alias лс="ls"
 alias цд="cd"
 alias жи="vi"
 alias pw="poweroff"
-alias pmr="python manage.py runserver"
 alias ghcc="ghc -o exe --make"
+alias pmr="python manage.py runserver"
 alias pms="python manage.py shell"
+alias pmm="python manage.py migrate"
+alias pmmm="python manage.py makemigrations"
+alias nb="cd ~/netbeans-8.2/bin/ && ./netbeans"
 
 # SRC_DIRECTORY="$HOME/code/101-v5"
 # venv () {
@@ -106,3 +111,5 @@ export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/101-v5/week13/HomemadeORM/
 
 # for elixir
 # export PATH="$PATH:/usr/bin/elixir"
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
