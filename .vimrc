@@ -64,6 +64,7 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-salve'
 Plugin 'mattn/emmet-vim'
+Plugin 'svjunic/RadicalGoodSpeed'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -85,10 +86,10 @@ let g:syntastic_cpp_checkers = ['g++ -std=c++11']
 let g:syntastic_javascript_checkers = ['jshint']
 
 "for colorscheme
-set background=dark
+" set background=dark
 " let g:solarized_termcolors=256
-" colorscheme molokai 
-colorscheme gruvbox 
+colorscheme radicalgoodspeed 
+" colorscheme gruvbox 
 
 " gruvbox settings
 let g:gruvbox_italic=1

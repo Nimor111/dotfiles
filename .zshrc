@@ -7,7 +7,7 @@ export ZSH=/home/gmbojinov/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="geometry/geometry"
+ZSH_THEME="crunch"
 
 GEOMETRY_PROMPT_PLUGINS=(virtualenv git)
 
@@ -74,10 +74,11 @@ fi
 # For a full list of active aliases, run `alias`.
 alias g++="g++ -std=c++11"
 alias py="python3"
-alias rdm="vim README.md"
-alias sl="ls"
-alias lls="ls"
-alias lss="ls"
+alias rdm="vi README.md"
+alias sl="ls --color=auto"
+alias lls="ls --color=auto"
+alias lss="ls --color=auto"
+alias ls="ls --color=auto"
 alias cwd="pwd"
 alias nb="cd ~/netbeans-8.2/bin && ./netbeans"
 alias лс="ls"
