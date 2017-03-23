@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/gmbojinov/.oh-my-zsh
+export TERM=xterm-256color
 
 export PATH=$PATH:/home/gmbojinov/.cache/rebar3/bin
  

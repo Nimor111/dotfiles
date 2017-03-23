@@ -65,6 +65,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-salve'
 Plugin 'mattn/emmet-vim'
 Plugin 'svjunic/RadicalGoodSpeed'
+Plugin 'jnurmine/Zenburn'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -88,8 +89,9 @@ let g:syntastic_javascript_checkers = ['jshint']
 "for colorscheme
 " set background=dark
 " let g:solarized_termcolors=256
-colorscheme radicalgoodspeed 
-" colorscheme gruvbox 
+colors zenburn
+" colorscheme radicalgoodspeed 
+" colorscheme zenburn 
 
 " gruvbox settings
 let g:gruvbox_italic=1
@@ -169,3 +171,9 @@ function! Multiple_cursors_after()
 		exe 'NeoCompleteUnlock'
 	endif
 endfunction
+
+" fix issue with airline not appearing when NerdTree is off
+set laststatus=2
+
+" show powerline symbols in airline
+let g:airline_powerline_fonts = 1
