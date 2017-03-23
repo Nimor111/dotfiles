@@ -1,1 +1,1 @@
-curl wttr.in/sofia
+curl wttr.in/$1
