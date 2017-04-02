@@ -82,6 +82,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pep8']
+let g:syntastic_python_pep8_args='--ignore=E501,E225'
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_cpp_checkers = ['g++ -std=c++11']
 let g:syntastic_javascript_checkers = ['jshint']
@@ -97,7 +98,7 @@ colors zenburn
 let g:gruvbox_italic=1
 
 "column at col 80
-set colorcolumn=80
+set colorcolumn=120
 highlight colorcolumn ctermbg=DarkGray
 
 "fold stuff
@@ -105,6 +106,8 @@ highlight colorcolumn ctermbg=DarkGray
 " 	  au BufReadPre * setlocal foldmethod=indent
 " 	  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 " augroup END
+set foldmethod=indent
+set foldlevel=99
 
 "remove trailing whitespaces on save for specific file types
 autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -124,7 +127,7 @@ set t_Co=256
 let g:jedi#auto_initialization = 1
 let g:jedi#show_call_signatures = "2"
 
-" binds for jedi thingie
+" " binds for jedi thingie
 let g:jedi#goto_command = "<leader>d"
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>gg"

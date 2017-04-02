@@ -2,10 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/gmbojinov/.oh-my-zsh
+export ZSH=/home/gbojinov/.oh-my-zsh
 export TERM=xterm-256color
+export PATH=$PATH:/usr/lib/javac
 
-export PATH=$PATH:/home/gmbojinov/.cache/rebar3/bin
+export PATH=$PATH:/home/gbojinov/.cache/rebar3/bin
  
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -75,6 +76,7 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+alias vi="vim"
 alias g++="g++ -std=c++11"
 alias py="python3"
 alias rdm="vi README.md"
@@ -94,6 +96,7 @@ alias pms="python manage.py shell"
 alias pmm="python manage.py migrate"
 alias pmmm="python manage.py makemigrations"
 alias nb="cd ~/netbeans-8.2/bin/ && ./netbeans"
+# alias javac="/usr/lib/javac"
 
 # SRC_DIRECTORY="$HOME/code/101-v5"
 # venv () {
@@ -115,5 +118,5 @@ export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/101-v5/week13/HomemadeORM/
 
 # for elixir
 # export PATH="$PATH:/usr/bin/elixir"
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+# . $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/completions/asdf.bash
