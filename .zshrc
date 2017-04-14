@@ -5,6 +5,7 @@
 export ZSH=/home/gbojinov/.oh-my-zsh
 export TERM=xterm-256color
 export PATH=$PATH:/usr/lib/javac
+export PATH=$PATH:/home/gbojinov/.gem/ruby/2.4.0/bin
 
 export PATH=$PATH:/home/gbojinov/.cache/rebar3/bin
  
@@ -95,6 +96,7 @@ alias pmr="python manage.py runserver"
 alias pms="python manage.py shell"
 alias pmm="python manage.py migrate"
 alias pmmm="python manage.py makemigrations"
+alias pmt="python manage.py test"
 alias nb="cd ~/netbeans-8.2/bin/ && ./netbeans"
 # alias javac="/usr/lib/javac"
 
@@ -115,6 +117,7 @@ export PATH="$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH"
 # for working python imports $PYTHONPATH:/home/gbojinov/code/101-v5/week10/Cinema:
 export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/101-v5/week12/Snake/
 export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/101-v5/week13/HomemadeORM/
+export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/Adventure/
 
 # for elixir
 # export PATH="$PATH:/usr/bin/elixir"

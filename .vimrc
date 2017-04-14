@@ -66,6 +66,7 @@ Plugin 'tpope/vim-salve'
 Plugin 'mattn/emmet-vim'
 Plugin 'svjunic/RadicalGoodSpeed'
 Plugin 'jnurmine/Zenburn'
+Plugin 'rust-lang/rust.vim'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -86,6 +87,8 @@ let g:syntastic_python_pep8_args='--ignore=E501,E225'
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_cpp_checkers = ['g++ -std=c++11']
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 
 "for colorscheme
 " set background=dark
