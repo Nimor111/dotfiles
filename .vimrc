@@ -6,7 +6,8 @@ call vundle#begin()
 execute pathogen#infect()
 
 " try font change
-" set guifont=Fira\ Code
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+" set encoding=utf-8
 
 "ruler
 set ruler
@@ -55,7 +56,6 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'ChrisKempson/Tomorrow-Theme'
 Plugin 'Twinside/vim-haskellConceal'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
@@ -67,6 +67,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'svjunic/RadicalGoodSpeed'
 Plugin 'jnurmine/Zenburn'
 Plugin 'rust-lang/rust.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'ryanoasis/vim-devicons'
 
 "set airline theme
 let g:airline_theme='gruvbox'

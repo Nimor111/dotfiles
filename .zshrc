@@ -123,3 +123,6 @@ export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/Adventure/
 # export PATH="$PATH:/usr/bin/elixir"
 # . $HOME/.asdf/asdf.sh
 # . $HOME/.asdf/completions/asdf.bash
+
+export WORKON_HOME=~/Envs
+source /usr/bin/virtualenvwrapper.sh
