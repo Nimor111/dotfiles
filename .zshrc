@@ -99,6 +99,7 @@ alias pmt="python manage.py test"
 alias nb="cd ~/netbeans-8.2/bin/ && ./netbeans"
 alias viconf="vi ~/.vimrc"
 alias zshconf="vi ~/.zshrc"
+alias plovdiv="pwd"
 # alias javac="/usr/lib/javac"
 
 # SRC_DIRECTORY="$HOME/code/101-v5"
@@ -127,5 +128,3 @@ export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/Adventure/
 
 export WORKON_HOME=~/Envs
 source /usr/bin/virtualenvwrapper.sh
-
-export SENDGRID_API_KEY='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'
