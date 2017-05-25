@@ -70,9 +70,11 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'AndrewRadev/sideways.vim'
+Plugin 'kien/ctrlp.vim'
 
 "set airline theme
-let g:airline_theme='gruvbox'
+let g:airline_theme='term'
 
 " syntastic settings TODO check
 map <Leader>s :SyntasticToggleMode<CR>
@@ -96,9 +98,10 @@ let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 "for colorscheme
 " set background=dark
 " let g:solarized_termcolors=256
-colors zenburn
+" colors zenburn
 " colorscheme radicalgoodspeed 
 " colorscheme zenburn 
+colorscheme kolor 
 
 " gruvbox settings
 let g:gruvbox_italic=1
@@ -122,7 +125,7 @@ autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
 call vundle#end() 
 
 "256 colour vim
-set t_Co=256
+" set t_Co=256
 
 " map <silent> tw :GhcModTypeInsert<CR>
 " map <silent> ts :GhcModSplitFunCase<CR>
@@ -186,3 +189,15 @@ set laststatus=2
 
 " show powerline symbols in airline
 let g:airline_powerline_fonts = 1
+
+" map sideways keys
+nnoremap <c-h> :SidewaysLeft<cr>
+nnoremap <c-l> :SidewaysRight<cr>
+
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+
+let g:SuperTabCrMapping = 0
+
+    
+
