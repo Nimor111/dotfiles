@@ -100,6 +100,7 @@ alias nb="cd ~/netbeans-8.2/bin/ && ./netbeans"
 alias viconf="vi ~/.vimrc"
 alias zshconf="vi ~/.zshrc"
 alias plovdiv="pwd"
+alias e="emacsclient -t"
 # alias javac="/usr/lib/javac"
 
 # SRC_DIRECTORY="$HOME/code/101-v5"
@@ -128,3 +129,8 @@ export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/Adventure/
 
 export WORKON_HOME=~/Envs
 source /usr/bin/virtualenvwrapper.sh
+
+# if [[ -z `pidof emacs` ]]
+#     then
+#         emacs --daemon
+# fi

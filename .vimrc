@@ -72,6 +72,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'AndrewRadev/sideways.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'derekwyatt/vim-scala'
 
 "set airline theme
 let g:airline_theme='term'
@@ -85,8 +86,9 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_scala_checkers = ['']
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_python_pep8_args='--ignore=E501,E225'
 let g:syntastic_ruby_checkers = ['rubocop']
@@ -96,12 +98,13 @@ let g:syntastic_rust_checkers = ['rustc']
 let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 
 "for colorscheme
-" set background=dark
+" set background=light
 " let g:solarized_termcolors=256
+" colorscheme solarized
 " colors zenburn
 " colorscheme radicalgoodspeed 
-" colorscheme zenburn 
-colorscheme kolor 
+colorscheme zenburn 
+" colorscheme kolor 
 
 " gruvbox settings
 let g:gruvbox_italic=1
@@ -193,11 +196,3 @@ let g:airline_powerline_fonts = 1
 " map sideways keys
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
-
-let g:clang_c_options = '-std=gnu11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-
-let g:SuperTabCrMapping = 0
-
-    
-
