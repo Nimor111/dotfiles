@@ -73,6 +73,11 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'AndrewRadev/sideways.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'tpope/vim-fugitive'
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'mileszs/ack.vim'
+
 
 "set airline theme
 let g:airline_theme='term'
