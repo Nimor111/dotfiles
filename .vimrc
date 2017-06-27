@@ -201,3 +201,6 @@ let g:airline_powerline_fonts = 1
 " map sideways keys
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
+
+" use ag
+let g:ackprg = 'ag --vimgrep'
