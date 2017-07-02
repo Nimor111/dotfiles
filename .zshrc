@@ -101,7 +101,8 @@ alias viconf="vi ~/.vimrc"
 alias zshconf="vi ~/.zshrc"
 alias plovdiv="pwd"
 alias e="emacsclient -t"
-# alias javac="/usr/lib/javac"
+alias connect="netctl start wlp1s0$1"
+alias ok="~/dotfiles/Scripts/kill_shell.sh"
 
 # SRC_DIRECTORY="$HOME/code/101-v5"
 # venv () {

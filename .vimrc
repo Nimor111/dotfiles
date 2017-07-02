@@ -28,7 +28,7 @@ set nocompatible
 set number
 
 "start nerdtree automatically with vim
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 
 "map turn on NERDTree key
 map <Leader>k :NERDTreeToggle<CR>
