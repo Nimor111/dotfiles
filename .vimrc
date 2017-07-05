@@ -28,7 +28,7 @@ set nocompatible
 set number
 
 "start nerdtree automatically with vim
-" autocmd vimenter * NERDTree
+autocmd vimenter * NERDTree
 
 "map turn on NERDTree key
 map <Leader>k :NERDTreeToggle<CR>
@@ -70,14 +70,16 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'AndrewRadev/sideways.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'tpope/vim-fugitive'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'mileszs/ack.vim'
-
+Plugin 'slashmili/alchemist.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'janko-m/vim-test'
+Plugin 'christoomey/vim-tmux-runner'
 
 "set airline theme
 let g:airline_theme='term'
@@ -198,9 +200,16 @@ set laststatus=2
 " show powerline symbols in airline
 let g:airline_powerline_fonts = 1
 
-" map sideways keys
-nnoremap <c-h> :SidewaysLeft<cr>
-nnoremap <c-l> :SidewaysRight<cr>
-
 " use ag
 let g:ackprg = 'ag --vimgrep'
+
+" vim test
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+let test#strategy = "vtr"
+
+let test#python#runner = 'pytest'

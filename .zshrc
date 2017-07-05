@@ -61,7 +61,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -100,9 +100,8 @@ alias nb="cd ~/netbeans-8.2/bin/ && ./netbeans"
 alias viconf="vi ~/.vimrc"
 alias zshconf="vi ~/.zshrc"
 alias plovdiv="pwd"
-alias e="emacsclient -t"
-alias connect="netctl start wlp1s0$1"
-alias ok="~/dotfiles/Scripts/kill_shell.sh"
+alias c="clear"
+# alias javac="/usr/lib/javac"
 
 # SRC_DIRECTORY="$HOME/code/101-v5"
 # venv () {
@@ -131,7 +130,19 @@ export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/Adventure/
 export WORKON_HOME=~/Envs
 source /usr/bin/virtualenvwrapper.sh
 
-# if [[ -z `pidof emacs` ]]
-#     then
-#         emacs --daemon
-# fi
+
+work() {
+    workon $1 && j $1
+}
+
+if [ -n "$VIRTUAL_ENV" ]; then
+    source $VIRTUAL_ENV/bin/activate;
+fi
+
+if [[ -n "$TMUX" ]]; then
+    tmux set-environment VIRTUAL_ENV $VIRTUAL_ENV
+fi
+
+
+autoload -Uz compinit
+compinit
