@@ -31,32 +31,6 @@ fi
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# personal aliases
-alias vi="vim"
-alias g++="g++ -std=c++11"
-alias py="python3"
-alias rdm="vi README.md"
-alias sl="ls --color=auto"
-alias lls="ls --color=auto"
-alias lss="ls --color=auto"
-alias ls="ls --color=auto"
-alias cwd="pwd"
-alias лс="ls"
-alias цд="cd"
-alias жи="vi"
-alias pw="poweroff"
-alias ghcc="ghc -o exe --make"
-alias pmr="python manage.py runserver"
-alias pms="python manage.py shell"
-alias pmm="python manage.py migrate"
-alias pmmm="python manage.py makemigrations"
-alias pmt="python manage.py test"
-alias nb="cd ~/netbeans-8.2/bin/ && ./netbeans"
-alias viconf="vi ~/.vimrc"
-alias zshconf="vi ~/.zshrc"
-alias plovdiv="pwd"
-alias c="clear"
-
 # ls colors
 LS_COLORS=$LS_COLORS:'di=1;32:' ; export LS_COLORS
 
@@ -83,7 +57,7 @@ work() {
 
 # keep virtualennv when creating new zsh tabs
 if [ -n "$VIRTUAL_ENV" ]; then
-    source $VIRTUAL_ENV/bin/activate;
+    source $VIRTUAL_ENV/bin/activate
 fi
 
 # same as above except for tmux

@@ -9,6 +9,9 @@ execute pathogen#infect()
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
 " set encoding=utf-8
 
+" source .file
+set shell=/bin/zsh
+
 "ruler
 set ruler
 
@@ -80,6 +83,7 @@ Plugin 'slashmili/alchemist.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'janko-m/vim-test'
 Plugin 'christoomey/vim-tmux-runner'
+Plugin 'trusktr/seti.vim'
 
 "set airline theme
 let g:airline_theme='term'
@@ -106,11 +110,12 @@ let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 
 "for colorscheme
 " set background=light
-" let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 " colorscheme solarized
 " colors zenburn
 " colorscheme radicalgoodspeed 
 colorscheme zenburn 
+" colorscheme seti
 " colorscheme kolor 
 
 " gruvbox settings
@@ -211,5 +216,4 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 let test#strategy = "vtr"
-
 let test#python#runner = 'pytest'
