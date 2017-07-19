@@ -15,6 +15,21 @@ set shell=/bin/zsh
 "ruler
 set ruler
 
+"ignore case when using search pattern
+set ignorecase 
+
+"override 'ignorecase' when pattern has upper chars
+set smartcase 
+
+"highlight the screen line of the cursor
+set cursorline 
+
+"automatically set the indent of a new line
+set autoindent 
+
+"do clever autoindenting for next line (after if for etc.)
+set smartindent 
+
 "syntax highlighting
 syntax on
 
@@ -29,6 +44,15 @@ set nocompatible
 
 "display line numbers on the left
 set number
+
+"no swap file
+set noswapfile
+
+"command line completion show a list of matches
+set wildmenu 
+
+"specifies how command line completion works
+set wildmode=full 
 
 "start nerdtree automatically with vim
 autocmd vimenter * NERDTree
@@ -217,3 +241,7 @@ nmap <silent> <leader>g :TestVisit<CR>
 
 let test#strategy = "vtr"
 let test#python#runner = 'pytest'
+
+"Substitute
+nnoremap <c-s> :%s/
+vnoremap <c-s> :s/
