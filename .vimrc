@@ -30,6 +30,9 @@ set autoindent
 "do clever autoindenting for next line (after if for etc.)
 set smartindent 
 
+"relative line numbers
+set relativenumber
+
 "syntax highlighting
 syntax on
 
@@ -43,7 +46,7 @@ set nocompatible
 " set hidden
 
 "display line numbers on the left
-set number
+" set number
 
 "no swap file
 set noswapfile
