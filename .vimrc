@@ -248,3 +248,10 @@ let test#python#runner = 'pytest'
 "Substitute
 nnoremap <c-s> :%s/
 vnoremap <c-s> :s/
+
+" Disable arrow keys
+for prefix in ['i', 'n', 'v']
+  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+    exe prefix . "noremap " . key . " <Nop>"
+  endfor
+endfor
