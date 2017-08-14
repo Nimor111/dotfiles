@@ -111,9 +111,12 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'janko-m/vim-test'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'trusktr/seti.vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'arcticicestudio/nord-vim'
 
 "set airline theme
-let g:airline_theme='term'
+let g:airline_theme='nord'
 
 " syntastic settings TODO check
 map <Leader>s :SyntasticToggleMode<CR>
@@ -122,26 +125,33 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_enable_signs=1
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_style_error_symbol='✠'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_warning_symbol='≈'
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_scala_checkers = ['']
-let g:syntastic_python_checkers = ['pep8']
+let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_pep8_args='--ignore=E501,E225'
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_cpp_checkers = ['g++ -std=c++11']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_rust_checkers = ['rustc']
 let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 
 "for colorscheme
-" set background=light
-let g:solarized_termcolors=256
+" set background=dark
+" let g:solarized_termcolors=256
 " colorscheme solarized
 " colors zenburn
+colorschem nord
 " colorscheme radicalgoodspeed 
-colorscheme zenburn 
 " colorscheme seti
 " colorscheme kolor 
 
@@ -167,7 +177,7 @@ autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
 call vundle#end() 
 
 "256 colour vim
-" set t_Co=256
+set t_Co=256
 
 " map <silent> tw :GhcModTypeInsert<CR>
 " map <silent> ts :GhcModSplitFunCase<CR>
