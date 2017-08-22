@@ -30,8 +30,11 @@ set autoindent
 "do clever autoindenting for next line (after if for etc.)
 set smartindent 
 
-"relative line numbers
+"relative line numbers and line numbers
+set number
 set relativenumber
+
+set showcmd
 
 "syntax highlighting
 syntax on
