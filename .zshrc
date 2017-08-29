@@ -9,8 +9,6 @@ export PATH=$PATH:/home/gbojinov/.cache/rebar3/bin
 # Set name of the theme to load. 
 ZSH_THEME="crunch"
 
-GEOMETRY_PROMPT_PLUGINS=(virtualenv git)
-
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
@@ -39,11 +37,6 @@ eval "$(jump shell zsh)"
 
 # haskell shenanigans
 export PATH="$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH"
-
-# for working python imports $PYTHONPATH:/home/gbojinov/code/101-v5/week10/Cinema:
-export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/101-v5/week12/Snake/
-export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/101-v5/week13/HomemadeORM/
-export PYTHONPATH=$PYTHONPATH:/home/gmbojinov/code/Adventure/
 
 # Python virtualenvwrapper
 export WORKON_HOME=~/Envs
