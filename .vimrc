@@ -90,7 +90,6 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'Twinside/vim-haskellConceal'
-Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'guns/vim-clojure-static'
@@ -117,6 +116,7 @@ Plugin 'trusktr/seti.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'othree/html5.vim'
 
 "set airline theme
 let g:airline_theme='nord'
@@ -174,7 +174,7 @@ set foldmethod=indent
 set foldlevel=99
 
 "remove trailing whitespaces on save for specific file types
-autocmd FileType c,cpp,python,ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,python,ruby,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "don't put plugin links after this 
 call vundle#end() 
@@ -268,3 +268,9 @@ for prefix in ['i', 'n', 'v']
     exe prefix . "noremap " . key . " <Nop>"
   endfor
 endfor
+
+" JS highlighting
+let g:javascript_plugin_flow = 1
+
+" don't require .jsx extension
+let g:jsx_ext_required = 0
