@@ -117,6 +117,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'othree/html5.vim'
+Plugin 'prettier/vim-prettier'
+
 
 "set airline theme
 let g:airline_theme='nord'
@@ -274,3 +276,7 @@ let g:javascript_plugin_flow = 1
 
 " don't require .jsx extension
 let g:jsx_ext_required = 0
+
+" settings for prettify
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
