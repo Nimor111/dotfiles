@@ -118,6 +118,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'othree/html5.vim'
 Plugin 'prettier/vim-prettier'
+Plugin 'nbouscal/vim-stylish-haskell'
+Plugin 'shime/vim-livedown'
 
 
 "set airline theme
@@ -280,3 +282,10 @@ let g:jsx_ext_required = 0
 " settings for prettify
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+
+" vim-go settings
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+
+nmap <silent> <leader>d :GoDef<CR>
+nmap <silent> <leader>dd :GoTest<CR>
