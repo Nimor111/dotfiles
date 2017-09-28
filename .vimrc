@@ -15,6 +15,9 @@ set shell=/bin/zsh
 "ruler
 set ruler
 
+"leader key
+let mapleader=" "
+
 "ignore case when using search pattern
 set ignorecase 
 
@@ -75,7 +78,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-endwise'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -120,7 +122,7 @@ Plugin 'othree/html5.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'nbouscal/vim-stylish-haskell'
 Plugin 'shime/vim-livedown'
-
+Plugin 'w0rp/ale'
 
 "set airline theme
 let g:airline_theme='nord'
@@ -289,3 +291,12 @@ let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 nmap <silent> <leader>d :GoDef<CR>
 nmap <silent> <leader>dd :GoTest<CR>
+
+" use airline for vim ale errors
+let g:airline#extensions#ale#enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+nmap <silent> <Leader>j <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>m <Plug>(ale_next_wrap)
