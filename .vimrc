@@ -300,3 +300,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 nmap <silent> <Leader>j <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>m <Plug>(ale_next_wrap)
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|_site|node_modules)$',
+  \ }
