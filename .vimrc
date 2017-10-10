@@ -298,9 +298,14 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
+" Jump quickly through errors in ALE
 nmap <silent> <Leader>j <Plug>(ale_previous_wrap)
 nmap <silent> <Leader>m <Plug>(ale_next_wrap)
 
+" ignore node modules in ctrl-p
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|_site|node_modules)$',
   \ }
+
+" run a markdown grip preview on every save
+autocmd BufWritePost *.md !grip -b
