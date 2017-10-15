@@ -3,11 +3,19 @@ export ZSH=/home/gbojinov/.oh-my-zsh
 export TERM=xterm-256color
 export PATH=$PATH:/usr/bin/javac
 export PATH=$PATH:/home/gbojinov/.gem/ruby/2.4.0/bin
+export PATH=$PATH:/bin/stylish-haskell
 
 export PATH=$PATH:/home/gbojinov/.cache/rebar3/bin
+export PATH=$PATH:/home/gbojinov/.local/bin/
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.cargo/bin/racer
  
 # Set name of the theme to load. 
 ZSH_THEME="crunch"
+
+GEOMETRY_PROMPT_PLUGINS=(virtualenv git)
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -62,3 +70,5 @@ fi
 # i'm afraid to delete this
 autoload -Uz compinit
 compinit
+
+export GOPATH="$HOME/code/go/"
