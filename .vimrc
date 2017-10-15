@@ -353,3 +353,6 @@ set listchars=tab:\ \ ,trail:·
 
 " disable help screen, we all know it's annoying
 nnoremap <F1> <NOP>
+
+" snippet dirs
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
