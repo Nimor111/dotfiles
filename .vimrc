@@ -49,7 +49,7 @@ filetype plugin indent on
 set nocompatible
 
 "hide files instead of closing them when they have unwritten changes
-" set hidden
+set hidden
 
 "display line numbers on the left
 " set number
@@ -123,9 +123,10 @@ Plugin 'prettier/vim-prettier'
 Plugin 'nbouscal/vim-stylish-haskell'
 Plugin 'shime/vim-livedown'
 Plugin 'w0rp/ale'
+Plugin 'racer-rust/vim-racer'
 
 "set airline theme
-let g:airline_theme='nord'
+let g:airline_theme='gruvbox'
 
 " syntastic settings TODO check
 map <Leader>s :SyntasticToggleMode<CR>
@@ -159,10 +160,11 @@ let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 " let g:solarized_termcolors=256
 " colorscheme solarized
 " colors zenburn
-colorschem nord
+" colorschem nord
 " colorscheme radicalgoodspeed 
 " colorscheme seti
 " colorscheme kolor 
+colorscheme gruvbox
 
 " gruvbox settings
 let g:gruvbox_italic=1
@@ -180,7 +182,7 @@ set foldmethod=indent
 set foldlevel=99
 
 "remove trailing whitespaces on save for specific file types
-autocmd FileType c,cpp,python,ruby,javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,python,ruby,javascript,rust autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "don't put plugin links after this 
 call vundle#end() 
@@ -289,6 +291,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
+" some vim-go to def binds
 nmap <silent> <leader>d :GoDef<CR>
 nmap <silent> <leader>dd :GoTest<CR>
 
@@ -309,3 +312,44 @@ let g:ctrlp_custom_ignore = {
 
 " run a markdown grip preview on every save
 autocmd BufWritePost *.md !grip -b
+
+" run rustfmt on save
+let g:rustfmt_autosave = 1
+
+" use cargo check command on save
+let g:ale_rust_cargo_use_check = 1
+
+" set ale linter to be stack-ghc-mod and not standard ghc-mod
+let g:ale_linters = {'haskell': ['hlint', 'stack-ghc-mod']}
+
+" set .pl extension to be prolog
+let g:filetype_pl="prolog"
+
+" for racer vim
+let g:racer_cmd = "/home/gbojinov/.cargo/bin/racer"
+
+" complete function definitions
+let g:racer_experimental_completer = 1
+
+" mappings for racer vim plugin
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+" turn off automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Highlight the search term while still typing it.
+set hlsearch
+set incsearch
+
+" spell checker
+set spell
+
+" Show trailing whitespace as ·
+set list
+set listchars=tab:\ \ ,trail:·
+
+" disable help screen, we all know it's annoying
+nnoremap <F1> <NOP>
