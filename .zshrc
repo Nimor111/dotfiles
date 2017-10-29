@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/gbojinov/.oh-my-zsh
-export TERM=xterm-256color
+export TERM=rxvt-unicode-256color
 export PATH=$PATH:/usr/bin/javac
 export PATH=$PATH:/home/gbojinov/.gem/ruby/2.4.0/bin
 export PATH=$PATH:/bin/stylish-haskell

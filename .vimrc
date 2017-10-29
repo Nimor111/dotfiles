@@ -103,7 +103,6 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'rust-lang/rust.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'kien/ctrlp.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'tpope/vim-fugitive'
@@ -124,6 +123,7 @@ Plugin 'nbouscal/vim-stylish-haskell'
 Plugin 'shime/vim-livedown'
 Plugin 'w0rp/ale'
 Plugin 'racer-rust/vim-racer'
+Plugin 'ryanoasis/vim-devicons'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -159,7 +159,7 @@ let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 " set background=dark
 " let g:solarized_termcolors=256
 " colorscheme solarized
-" colors zenburn
+" colorscheme zenburn
 " colorschem nord
 " colorscheme radicalgoodspeed 
 " colorscheme seti
