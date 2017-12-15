@@ -72,3 +72,5 @@ autoload -Uz compinit
 compinit
 
 export GOPATH="$HOME/code/go/"
+
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"

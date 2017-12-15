@@ -124,36 +124,37 @@ Plugin 'shime/vim-livedown'
 Plugin 'w0rp/ale'
 Plugin 'racer-rust/vim-racer'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'joukevandermaas/vim-ember-hbs'
 
 "set airline theme
 let g:airline_theme='gruvbox'
 
 " syntastic settings TODO check
-map <Leader>s :SyntasticToggleMode<CR>
+" map <Leader>s :SyntasticToggleMode<CR>
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_enable_signs=1
+" let g:syntastic_enable_signs=1
 
-let g:syntastic_error_symbol='✗'
-let g:syntastic_style_error_symbol='✠'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_warning_symbol='≈'
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_style_error_symbol='✠'
+" let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_style_warning_symbol='≈'
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_scala_checkers = ['']
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_pep8_args='--ignore=E501,E225'
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_cpp_checkers = ['g++ -std=c++11']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_rust_checkers = ['rustc']
-let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_scala_checkers = ['']
+" let g:syntastic_python_checkers = ['flake8']
+" let g:syntastic_python_pep8_args='--ignore=E501,E225'
+" let g:syntastic_ruby_checkers = ['rubocop']
+" let g:syntastic_cpp_checkers = ['g++ -std=c++11']
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_rust_checkers = ['rustc']
+" let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 
 "for colorscheme
 " set background=dark
@@ -271,17 +272,17 @@ nnoremap <c-s> :%s/
 vnoremap <c-s> :s/
 
 " Disable arrow keys
-for prefix in ['i', 'n', 'v']
-  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-    exe prefix . "noremap " . key . " <Nop>"
-  endfor
-endfor
+" for prefix in ['i', 'n', 'v']
+"   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+"     exe prefix . "noremap " . key . " <Nop>"
+"   endfor
+" endfor
 
 " JS highlighting
 let g:javascript_plugin_flow = 1
 
 " don't require .jsx extension
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 " settings for prettify
 let g:prettier#autoformat = 0
@@ -326,7 +327,7 @@ let g:ale_linters = {'haskell': ['hlint', 'stack-ghc-mod']}
 let g:filetype_pl="prolog"
 
 " for racer vim
-let g:racer_cmd = "/home/gbojinov/.cargo/bin/racer"
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
 
 " complete function definitions
 let g:racer_experimental_completer = 1
@@ -356,3 +357,9 @@ nnoremap <F1> <NOP>
 
 " snippet dirs
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+
+" map turning of highlighting in searches
+nmap <leader>f :set nohlsearch<CR>
+
+" set syntax highlighting on hbs files
+au BufRead,BufNewFile *.hbs set filetype=handlebars
