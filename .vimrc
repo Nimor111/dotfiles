@@ -125,6 +125,7 @@ Plugin 'w0rp/ale'
 Plugin 'racer-rust/vim-racer'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'joukevandermaas/vim-ember-hbs'
+Plugin 'Chiel92/vim-autoformat'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -183,7 +184,7 @@ set foldmethod=indent
 set foldlevel=99
 
 "remove trailing whitespaces on save for specific file types
-autocmd FileType c,cpp,python,ruby,javascript,rust autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,python,ruby,javascript,rust,lua autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "don't put plugin links after this 
 call vundle#end() 
@@ -321,7 +322,7 @@ let g:rustfmt_autosave = 1
 let g:ale_rust_cargo_use_check = 1
 
 " set ale linter to be stack-ghc-mod and not standard ghc-mod
-let g:ale_linters = {'haskell': ['hlint', 'stack-ghc-mod']}
+let g:ale_linters = {'haskell': ['hlint', 'stack-ghc-mod'], 'cpp': ['g++']}
 
 " set .pl extension to be prolog
 let g:filetype_pl="prolog"
@@ -358,8 +359,11 @@ nnoremap <F1> <NOP>
 " snippet dirs
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 
-" map turning of highlighting in searches
+" map turning off highlighting in searches
 nmap <leader>f :set nohlsearch<CR>
 
 " set syntax highlighting on hbs files
 au BufRead,BufNewFile *.hbs set filetype=handlebars
+
+" autoformat C and cpp code
+autocmd BufWritePost *.c,*.cc,*.cpp,*.h,*.hpp :Autoformat

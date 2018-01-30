@@ -11,6 +11,10 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.cargo/bin/racer
+
+# custom motd
+cowsay "Hello there!"
+neofetch
  
 # Set name of the theme to load. 
 ZSH_THEME="crunch"
