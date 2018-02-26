@@ -39,5 +39,8 @@ urxvt*scrollBar: false
 
 URxvt*font: xft:Inconsolata LGC for Powerline Plus Nerd File Types Mono:size=11:style=Bold
 URxvt*letterSpace: 1
+URxvt*transparent: true
+URxvt.shading:      20
 
 rofi.theme: gruvbox-dark-hard
+rofi.modi: ssh,window,run,keys
