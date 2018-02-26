@@ -192,4 +192,12 @@ bindsym $mod+p exec $HOME/.config/i3/scripts/lock.sh
 # exec polybar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# run rofi on $mod+d
 bindsym $mod+d exec rofi -show run -terminal urxvtc
+
+# disable title bar
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
+
+# change border colour on focused window
+client.focused #000000 #000000 #000000 #000000
