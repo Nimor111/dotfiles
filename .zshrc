@@ -48,7 +48,7 @@ LS_COLORS=$LS_COLORS:'di=1;32:' ; export LS_COLORS
 eval "$(jump shell zsh)"
 
 # haskell shenanigans
-export PATH="$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH"
+# export PATH="$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH"
 
 # Python virtualenvwrapper
 export WORKON_HOME=~/Envs
@@ -77,4 +77,10 @@ compinit
 
 export GOPATH="$HOME/code/go/"
 
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+
+export PYTHONPATH="$HOME/code/DataScience/ThinkStats/:$HOME/code/DataScience/ThinkStats/utils"
+
+export JAVA_HOME="$(which java)"
+export PATH=$PATH:$JAVA_HOME/bin
+export CATALINA_HOME=/usr/share/tomcat8

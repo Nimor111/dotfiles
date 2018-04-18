@@ -127,7 +127,11 @@ Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'purescript-contrib/purescript-vim'
 Plugin 'FrigoEU/psc-ide-vim'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'chemzqm/vim-jsx-improve'
+Plugin 'w0rp/ale'
+Plugin 'ianks/vim-tsx'
+Plugin 'epilande/vim-es2015-snippets'
+Plugin 'epilande/vim-react-snippets'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -147,7 +151,7 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_warning_symbol='≈'
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
@@ -155,6 +159,7 @@ let g:syntastic_python_pep8_args='--ignore=E501,E225'
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_rust_checkers = ['rustc']
+let g:syntastic_haskell_checkers = ['hlint']
 " let g:syntastic_cpp_clang_exec =  '/usr/bin/clang'
 
 let g:syntastic_cpp_compiler = 'clang++'
@@ -187,7 +192,7 @@ set foldmethod=indent
 set foldlevel=99
 
 "remove trailing whitespaces on save for specific file types
-autocmd FileType c,cpp,python,ruby,javascript,rust,lua autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,python,ruby,javascript,rust,lua,java,sql autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "don't put plugin links after this 
 call vundle#end() 
@@ -301,14 +306,14 @@ nmap <silent> <leader>d :GoDef<CR>
 nmap <silent> <leader>dd :GoTest<CR>
 
 " use airline for vim ale errors
-" let g:airline#extensions#ale#enabled = 1
-" let g:ale_echo_msg_error_str = 'E'
-" let g:ale_echo_msg_warning_str = 'W'
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " Jump quickly through errors in ALE
-" nmap <silent> <Leader>j <Plug>(ale_previous_wrap)
-" nmap <silent> <Leader>m <Plug>(ale_next_wrap)
+nmap <silent> <Leader>j <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>m <Plug>(ale_next_wrap)
 
 " ignore node modules in ctrl-p
 let g:ctrlp_custom_ignore = {
@@ -322,10 +327,11 @@ autocmd BufWritePost *.md !grip -b
 let g:rustfmt_autosave = 1
 
 " use cargo check command on save
-" let g:ale_rust_cargo_use_check = 1
+let g:ale_rust_cargo_use_check = 1
 
 " set ale linter to be stack-ghc-mod and not standard ghc-mod
-" let g:ale_linters = {'haskell': ['hlint', 'stack-ghc-mod'], 'cpp': ['g++'], 'rust': ['cargo']}
+let g:ale_linters = {'haskell': ['hlint', 'stack-ghc-mod'], 'cpp': ['g++'], 'rust': ['cargo']}
+let g:ale_fixers = {'javascript': ['eslint'],}
 
 " set .pl extension to be prolog
 let g:filetype_pl="prolog"
@@ -373,3 +379,6 @@ autocmd BufWritePost *.c,*.cc,*.cpp,*.h,*.hpp :Autoformat
 
 " enable syntastic checks of purescript code
 let g:psc_ide_syntastic_mode = 1
+
+" Allow JSX in normal JS files
+" let g:jsx_ext_required = 0
