@@ -81,8 +81,6 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'eagletmt/neco-ghc'
 Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
@@ -132,6 +130,9 @@ Plugin 'w0rp/ale'
 Plugin 'ianks/vim-tsx'
 Plugin 'epilande/vim-es2015-snippets'
 Plugin 'epilande/vim-react-snippets'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'elmcast/elm-vim'
+Plugin 'tikhomirov/vim-glsl'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -166,7 +167,7 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 "for colorscheme
-" set background=dark
+set background=dark
 " let g:solarized_termcolors=256
 " colorscheme solarized
 " colorscheme zenburn
@@ -192,7 +193,7 @@ set foldmethod=indent
 set foldlevel=99
 
 "remove trailing whitespaces on save for specific file types
-autocmd FileType c,cpp,python,ruby,javascript,rust,lua,java,sql autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,python,ruby,javascript,rust,lua,java,sql,html autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "don't put plugin links after this 
 call vundle#end() 
@@ -291,7 +292,7 @@ vnoremap <c-s> :s/
 let g:javascript_plugin_flow = 1
 
 " don't require .jsx extension
-" let g:jsx_ext_required = 0
+let g:jsx_ext_required = 1
 
 " settings for prettify
 let g:prettier#autoformat = 0
@@ -321,7 +322,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " run a markdown grip preview on every save
-autocmd BufWritePost *.md !grip -b
+" autocmd BufWritePost *.md !grip -b
 
 " run rustfmt on save
 let g:rustfmt_autosave = 1
@@ -377,8 +378,21 @@ au BufRead,BufNewFile *.hbs set filetype=handlebars
 " autoformat C and cpp code
 autocmd BufWritePost *.c,*.cc,*.cpp,*.h,*.hpp :Autoformat
 
+" set .ron extension on ron files
+au BufRead,BufNewFile *.ron set filetype=ron
+
 " enable syntastic checks of purescript code
 let g:psc_ide_syntastic_mode = 1
 
 " Allow JSX in normal JS files
 " let g:jsx_ext_required = 0
+
+" options for vim-prettier js plugin
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#trailing_comma = 'none'
+
+" Ignore pyc files in nerd tree
+let NERDTreeIgnore = ['\.pyc$']
+
+" run go files from vim
+nmap <silent> <leader>h :GoRun<CR>
