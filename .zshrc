@@ -84,3 +84,7 @@ export PYTHONPATH="$HOME/code/DataScience/ThinkStats/:$HOME/code/DataScience/Thi
 export JAVA_HOME="$(which java)"
 export PATH=$PATH:$JAVA_HOME/bin
 export CATALINA_HOME=/usr/share/tomcat8
+
+# kubectl auto-completion
+source <(kubectl completion zsh)
+complete -o default -F __start_kubectl k8s
