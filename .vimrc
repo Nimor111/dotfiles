@@ -396,3 +396,9 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " run go files from vim
 nmap <silent> <leader>h :GoRun<CR>
+
+" make prettier use single quotes by default
+let g:prettier#config#single_quote = 'true'
+
+" remove whitespace
+nmap <leader>b :%s/\s\+$//e<CR>
