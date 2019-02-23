@@ -1,5 +1,8 @@
+" set encoding
+scriptencoding utf-8
+
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "needed for plugin installer pathogen vim
@@ -16,37 +19,32 @@ set shell=/bin/zsh
 set ruler
 
 "leader key
-let mapleader=" "
+let mapleader=' '
 
 "ignore case when using search pattern
-set ignorecase 
+set ignorecase
 
 "override 'ignorecase' when pattern has upper chars
-set smartcase 
+set smartcase
 
 "highlight the screen line of the cursor
-set cursorline 
+set cursorline
 
 "automatically set the indent of a new line
-set autoindent 
+set autoindent
 
 "do clever autoindenting for next line (after if for etc.)
-set smartindent 
+set smartindent
 
 "relative line numbers and line numbers
 set number
 set relativenumber
-
-set showcmd
 
 "syntax highlighting
 syntax on
 
 "determine type of file based on name and contents
 filetype plugin indent on
-
-"compatible makes vim compatible with vi on older unix 
-set nocompatible
 
 "hide files instead of closing them when they have unwritten changes
 set hidden
@@ -58,19 +56,20 @@ set hidden
 set noswapfile
 
 "command line completion show a list of matches
-set wildmenu 
+set wildmenu
 
 "specifies how command line completion works
-set wildmode=full 
+set wildmode=full
 
 "start nerdtree automatically with vim
-autocmd vimenter * NERDTree
+"close vim if only nerdtree is open
+augroup nerdtree
+  autocmd vimenter * NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
 
 "map turn on NERDTree key
 map <Leader>k :NERDTreeToggle<CR>
-
-"close vim if only nerdtree is open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "plugins
 Plugin 'VundleVim/Vundle.vim'
@@ -83,21 +82,14 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'Shougo/neocomplete.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'Twinside/vim-haskellConceal'
 Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-salve'
 Plugin 'mattn/emmet-vim'
-Plugin 'svjunic/RadicalGoodSpeed'
-Plugin 'jnurmine/Zenburn'
 Plugin 'rust-lang/rust.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'leafgarland/typescript-vim'
@@ -107,21 +99,16 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'mileszs/ack.vim'
-Plugin 'slashmili/alchemist.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'janko-m/vim-test'
 Plugin 'christoomey/vim-tmux-runner'
-Plugin 'trusktr/seti.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'arcticicestudio/nord-vim'
 Plugin 'othree/html5.vim'
 Plugin 'prettier/vim-prettier'
-Plugin 'nbouscal/vim-stylish-haskell'
 Plugin 'shime/vim-livedown'
 Plugin 'racer-rust/vim-racer'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'purescript-contrib/purescript-vim'
 Plugin 'FrigoEU/psc-ide-vim'
@@ -133,6 +120,17 @@ Plugin 'epilande/vim-react-snippets'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'elmcast/elm-vim'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'thyrgle/vim-dyon'
+Plugin 'fatih/vim-go'
+Plugin 'nsf/gocode'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'alx741/vim-hindent'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Ivo-Donchev/vim-react-goto-definition'
+Plugin 'ap/vim-css-color'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'scrooloose/nerdtree'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -168,13 +166,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 "for colorscheme
 set background=dark
-" let g:solarized_termcolors=256
-" colorscheme solarized
-" colorscheme zenburn
-" colorschem nord
-" colorscheme radicalgoodspeed 
-" colorscheme seti
-" colorscheme kolor 
 colorscheme gruvbox
 
 " gruvbox settings
@@ -193,31 +184,28 @@ set foldmethod=indent
 set foldlevel=99
 
 "remove trailing whitespaces on save for specific file types
-autocmd FileType c,cpp,python,ruby,javascript,rust,lua,java,sql,html autocmd BufWritePre <buffer> :%s/\s\+$//e
+augroup whitespace
+  autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
+augroup END
 
-"don't put plugin links after this 
-call vundle#end() 
+"don't put plugin links after this
+call vundle#end()
 
 "256 colour vim
 set t_Co=256
 
-" map <silent> tw :GhcModTypeInsert<CR>
-" map <silent> ts :GhcModSplitFunCase<CR>
-" map <silent> tq :GhcModType<CR>
-" map <silent> te :GhcModTypeClear<CR>
-
 " settings for jedi python library / autocomplete
 let g:jedi#auto_initialization = 1
-let g:jedi#show_call_signatures = "2"
+let g:jedi#show_call_signatures = '2'
 
 " " binds for jedi thingie
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>gg"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
+let g:jedi#goto_command = '<leader>d'
+let g:jedi#goto_assignments_command = '<leader>g'
+let g:jedi#goto_definitions_command = '<leader>gg'
+let g:jedi#documentation_command = 'K'
+let g:jedi#usages_command = '<leader>n'
+let g:jedi#completions_command = '<C-Space>'
+let g:jedi#rename_command = '<leader>r'
 
 " pretty self explanatory
 set cmdheight=2
@@ -245,17 +233,17 @@ let g:neocomplete#enable_at_startup = 1
 "
 " called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
-	if exists(':NeoCompleteLock')==2
-	      exe 'NeoCompleteLock'
-	endif
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
 endfunction
 
 " Called once only when the multiple selection is canceled
 " (default <Esc>)
 function! Multiple_cursors_after()
-	if exists(':NeoCompleteUnlock')==2
-		exe 'NeoCompleteUnlock'
-	endif
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
 endfunction
 
 " fix issue with airline not appearing when NerdTree is off
@@ -274,7 +262,7 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
-let test#strategy = "vtr"
+let test#strategy = 'vtr'
 let test#python#runner = 'pytest'
 
 "Substitute
@@ -282,11 +270,11 @@ nnoremap <c-s> :%s/
 vnoremap <c-s> :s/
 
 " Disable arrow keys
-" for prefix in ['i', 'n', 'v']
-"   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-"     exe prefix . "noremap " . key . " <Nop>"
-"   endfor
-" endfor
+for prefix in ['i', 'n', 'v']
+  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+    exe prefix . 'noremap ' . key . ' <Nop>'
+  endfor
+endfor
 
 " JS highlighting
 let g:javascript_plugin_flow = 1
@@ -296,15 +284,13 @@ let g:jsx_ext_required = 1
 
 " settings for prettify
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+augroup prettier
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+augroup END
 
 " vim-go settings
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-
-" some vim-go to def binds
-nmap <silent> <leader>d :GoDef<CR>
-nmap <silent> <leader>dd :GoTest<CR>
 
 " use airline for vim ale errors
 let g:airline#extensions#ale#enabled = 1
@@ -318,8 +304,8 @@ nmap <silent> <Leader>m <Plug>(ale_next_wrap)
 
 " ignore node modules in ctrl-p
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|_site|node_modules)$',
-  \ }
+			\ 'dir':  '\v[\/](\.git|\.hg|\.svn|_site|node_modules)$',
+			\ }
 
 " run a markdown grip preview on every save
 " autocmd BufWritePost *.md !grip -b
@@ -331,26 +317,31 @@ let g:rustfmt_autosave = 1
 let g:ale_rust_cargo_use_check = 1
 
 " set ale linter to be stack-ghc-mod and not standard ghc-mod
-let g:ale_linters = {'haskell': ['hlint', 'stack-ghc-mod'], 'cpp': ['g++'], 'rust': ['cargo']}
-let g:ale_fixers = {'javascript': ['eslint'],}
+let g:ale_linters = {'haskell': ['hlint', 'stack-ghc-mod'], 'cpp': ['clang'], 'cc': ['clang'], 'rust': ['cargo']}
+let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_cpp_clang_options = '-std=c++1z -Wall'
 
 " set .pl extension to be prolog
-let g:filetype_pl="prolog"
+let g:filetype_pl='prolog'
 
 " for racer vim
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let g:racer_cmd = '$HOME/.cargo/bin/racer'
 
 " complete function definitions
 let g:racer_experimental_completer = 1
 
 " mappings for racer vim plugin
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
+augroup racer
+  au FileType rust nmap gd <Plug>(rust-def)
+  au FileType rust nmap gs <Plug>(rust-def-split)
+  au FileType rust nmap gx <Plug>(rust-def-vertical)
+  au FileType rust nmap <leader>gd <Plug>(rust-doc)
+augroup END
 
 " turn off automatic comment insertion
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup comment
+  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
 
 " Highlight the search term while still typing it.
 set hlsearch
@@ -367,19 +358,22 @@ set listchars=tab:\ \ ,trail:·
 nnoremap <F1> <NOP>
 
 " snippet dirs
-let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
 " map turning off highlighting in searches
 nmap <leader>f :set nohlsearch<CR>
 
-" set syntax highlighting on hbs files
-au BufRead,BufNewFile *.hbs set filetype=handlebars
-
 " autoformat C and cpp code
-autocmd BufWritePost *.c,*.cc,*.cpp,*.h,*.hpp :Autoformat
+augroup CPP
+  autocmd BufWritePost *.c,*.cc,*.cpp,*.h,*.hpp :Autoformat
+augroup END
 
+" set syntax highlighting on hbs files
 " set .ron extension on ron files
-au BufRead,BufNewFile *.ron set filetype=ron
+augroup filetypes
+  au BufRead,BufNewFile *.hbs set filetype=handlebars
+  au BufRead,BufNewFile *.ron set filetype=ron
+augroup END
 
 " enable syntastic checks of purescript code
 let g:psc_ide_syntastic_mode = 1
@@ -397,8 +391,45 @@ let NERDTreeIgnore = ['\.pyc$']
 " run go files from vim
 nmap <silent> <leader>h :GoRun<CR>
 
+" vim-go autocomplete
+augroup golang
+  autocmd filetype go inoremap <buffer> . .<C-x><C-o>
+  autocmd FileType go nmap <silent> <leader>d :GoDef<CR>
+  autocmd FileType go nmap <silent> <leader>dd :GoTest<CR>
+augroup END
+
+" ultisnips
+" let g:UltiSnipsExpandTrigger="<c-j>"
+
+" make backspace work normally
+set backspace=2 " make backspace work like most other programs
+
+" hindent
+let g:hindent_on_save = 1
+
+" react def
+noremap <leader>h :call ReactGotoDef()<CR>
+
 " make prettier use single quotes by default
 let g:prettier#config#single_quote = 'true'
 
 " remove whitespace
 nmap <leader>b :%s/\s\+$//e<CR>
+
+" disable on save
+let g:tsuquyomi_disable_quickfix = 1
+
+" hints
+" imports
+augroup typescriptplugin
+  autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+  autocmd FileType typescript nmap <buffer> <Leader>i :TsuImport<CR>
+augroup END
+
+" autoformat dart files
+augroup dart
+  autocmd bufwritepost *.dart silent !flutter format %
+  set autoread
+augroup END
+
+set showcmd
