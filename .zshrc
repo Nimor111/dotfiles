@@ -100,6 +100,8 @@ export PATH=$PATH:~/.nvs/node/11.10.0/x64/bin
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # kubectl auto-completion
-source <(kubectl completion zsh)
-complete -o default -F __start_kubectl k8s
-
+if [ ! -z $(command -v kubectl) ]
+then
+  source <(kubectl completion zsh)
+  complete -o default -F __start_kubectl k8s
+fi
