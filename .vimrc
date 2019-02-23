@@ -388,14 +388,12 @@ let g:prettier#config#trailing_comma = 'none'
 " Ignore pyc files in nerd tree
 let NERDTreeIgnore = ['\.pyc$']
 
-" run go files from vim
-nmap <silent> <leader>h :GoRun<CR>
-
-" vim-go autocomplete
+" vim-go
 augroup golang
-  autocmd filetype go inoremap <buffer> . .<C-x><C-o>
+  autocmd FileType go inoremap <buffer> . .<C-x><C-o>
   autocmd FileType go nmap <silent> <leader>d :GoDef<CR>
   autocmd FileType go nmap <silent> <leader>dd :GoTest<CR>
+  autocmd FileType go nmap <silent> <leader>h :GoRun<CR>
 augroup END
 
 " ultisnips
@@ -432,4 +430,5 @@ augroup dart
   set autoread
 augroup END
 
+" show commands longer than one symbol
 set showcmd
