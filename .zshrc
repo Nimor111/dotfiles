@@ -22,7 +22,7 @@ ZSH_THEME="crunch"
 ENABLE_CORRECTION="true"
 
 # Plugins
-plugins=(git)
+plugins=(git, web-search, copyfile)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,6 +102,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # kubectl auto-completion
 if [ ! -z $(command -v kubectl) ]
 then
-  source <(kubectl completion zsh)
-  complete -o default -F __start_kubectl k8s
+source <(kubectl completion zsh)
+complete -o default -F __start_kubectl k8s
 fi

@@ -20,6 +20,7 @@ set ruler
 
 "leader key
 let mapleader=' '
+let maplocalleader=' '
 
 "ignore case when using search pattern
 set ignorecase
@@ -131,6 +132,8 @@ Plugin 'ap/vim-css-color'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ensime/ensime-vim'
+Plugin 'idris-hackers/idris-vim'
 
 "set airline theme
 let g:airline_theme='gruvbox'
@@ -417,18 +420,36 @@ nmap <leader>b :%s/\s\+$//e<CR>
 " disable on save
 let g:tsuquyomi_disable_quickfix = 1
 
+" take shortest import paths from all possible ones
+let g:tsuquyomi_shortest_import_path = 1
+
 " hints
 " imports
 augroup typescriptplugin
   autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
   autocmd FileType typescript nmap <buffer> <Leader>i :TsuImport<CR>
+  autocmd FileType typescript nmap <buffer> <Leader>c :TsuReferences<CR>
 augroup END
 
 " autoformat dart files
-augroup dart
-  autocmd bufwritepost *.dart silent !flutter format %
-  set autoread
-augroup END
+" augroup dart
+"   autocmd bufwritepost *.dart silent !flutter format %
+"   set autoread
+" augroup END
 
 " show commands longer than one symbol
 set showcmd
+
+" scala
+" typecheck on save
+" go to definition
+" browse docs
+augroup scala
+ autocmd BufWritePost *.scala silent :EnTypeCheck
+ autocmd FileType scala nnoremap <localleader>t :EnType<CR>
+ autocmd FileType scala nnoremap <localleader>d :EnDocBrowse<CR>
+ autocmd FileType scala nnoremap <localleader>df :EnDeclaration<CR>
+augroup END
+
+" open .vimrc in vertical split
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
