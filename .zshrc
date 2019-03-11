@@ -16,13 +16,16 @@ cowsay "Hello there!"
 neofetch
 
 # Set name of the theme to load.
-ZSH_THEME="crunch"
+ZSH_THEME="spaceship"
+
+# spaceship prompt timestamps
+export SPACESHIP_TIME_SHOW=true
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
 # Plugins
-plugins=(git, web-search, copyfile)
+plugins=(git web-search copyfile)
 
 source $ZSH/oh-my-zsh.sh
 
