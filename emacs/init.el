@@ -34,7 +34,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ensime scalariform avy-flycheck prettier-js tide intero hindent company-ghc all all-the-icons haskell-mode cider elixir-mode helm-company elpy projectile helm zenburn-theme neotree))))
+    (flutter dart-mode lsp-mode ensime scalariform avy-flycheck prettier-js tide intero hindent company-ghc all all-the-icons haskell-mode cider elixir-mode helm-company elpy projectile helm zenburn-theme neotree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -127,3 +127,22 @@
 (require 'paren)
 (setq show-paren-style 'parenthesis)
 (show-paren-mode +1)
+
+;; dart mode
+(add-hook 'dart-mode-hook 'lsp)
+
+;; help lsp-mode find package root automatically
+(with-eval-after-load "projectile"
+  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+  (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+
+(setq lsp-auto-guess-root t)
+
+;; format dart code on save
+(setq dart-format-on-save t)
+
+;; enable flycheck as error check for dart
+;;enable flycheck as error checker in dart
+(require 'flycheck)
+(add-hook 'dart-mode-hook 'flycheck-mode)
+(add-to-list 'flycheck-checkers 'dart-analysis-server)
