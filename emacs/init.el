@@ -8,6 +8,10 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
+;; exec path
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 ;; global variables
 (setq
   inhibit-startup-screen 1
@@ -32,9 +36,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flymake-start-on-flymake-mode nil)
+ '(intero-global-mode nil nil (intero))
+ '(lsp-prefer-flymake nil)
+ '(lsp-ui-doc-enable nil)
+ '(lsp-ui-flycheck-enable t)
+ '(lsp-ui-imenu-enable t)
+ '(lsp-ui-peek-enable t)
  '(package-selected-packages
    (quote
-    (flutter dart-mode lsp-mode ensime scalariform avy-flycheck prettier-js tide intero hindent company-ghc all all-the-icons haskell-mode cider elixir-mode helm-company elpy projectile helm zenburn-theme neotree))))
+    (powerline lsp-ui lsp-mode rust-mode exec-path-from-shell yaml-mode flutter dart-mode ensime scalariform prettier-js tide intero hindent company-ghc all all-the-icons haskell-mode cider elixir-mode helm-company elpy projectile helm zenburn-theme neotree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -123,26 +134,43 @@
 (add-hook 'haskell-mode-hook
 	  (lambda () (add-hook 'before-save-hook 'hindent-reformat-buffer nil 'local)))
 
+;; flycheck binds
+(defun flycheck-jump-errors ()
+  (global-set-key (kbd "M-n") 'flycheck-next-error)
+  (global-set-key (kbd "M-p") 'flycheck-previous-error))
+
 ;; match parens
 (require 'paren)
 (setq show-paren-style 'parenthesis)
 (show-paren-mode +1)
 
-;; dart mode
-(add-hook 'dart-mode-hook 'lsp)
+;; dart mode hooks
+(add-hook 'dart-mode-hook #'lsp)
+(add-hook 'dart-mode-hook 'flycheck-mode)
+(add-hook 'dart-mode-hook #'flycheck-jump-errors)
+
+;; format dart code on save
+(setq dart-format-on-save t)
 
 ;; help lsp-mode find package root automatically
 (with-eval-after-load "projectile"
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
-
 (setq lsp-auto-guess-root t)
 
-;; format dart code on save
-(setq dart-format-on-save t)
+;; flycheck binds for ts
+(add-hook 'typescript-mode-hook #'flycheck-jump-errors)
 
-;; enable flycheck as error check for dart
-;;enable flycheck as error checker in dart
-(require 'flycheck)
-(add-hook 'dart-mode-hook 'flycheck-mode)
-(add-to-list 'flycheck-checkers 'dart-analysis-server)
+;; remove flymake hook
+(remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
+
+;; fancy fancy
+(require 'lsp-ui)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+
+;; delete whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; powerline
+(require 'powerline)
+(powerline-default-theme)
