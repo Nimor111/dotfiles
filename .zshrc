@@ -1,15 +1,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export TERM=rxvt-unicode-256color
-export PATH=$PATH:/usr/bin/javac
-export PATH=$PATH:$HOME/.gem/ruby/2.4.0/bin
-export PATH=$PATH:/bin/stylish-haskell
 
-export PATH=$PATH:$HOME/.local/bin/
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/.cargo/bin
-export PATH=$PATH:$HOME/bin
-export PATH=$PATH:$HOME/.cargo/bin/racer
+# dart stuff
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+
+# PATH
+export PATH=$PATH:/usr/bin/javac:$HOME/.gem/ruby/2.4.0/bin:/bin/stylish-haskell:$HOME/.cabal/bin:$HOME/.local/bin/:$GOPATH/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/.cargo/bin/racer:$HOME/.pub-cache/bin:$HOME/.nvs/node/11.10.0/x64/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$JAVA_HOME/bin:$HOME/.rvm/bin
 
 # custom motd
 cowsay "Hello there!"
@@ -25,7 +21,7 @@ export SPACESHIP_TIME_SHOW=true
 ENABLE_CORRECTION="true"
 
 # Plugins
-plugins=(git web-search copyfile)
+plugins=(git web-search copyfile zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,15 +74,9 @@ compinit
 export GOPATH="$HOME/code/go"
 export GOROOT="/usr/lib/go"
 
-export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-export PYTHONPATH="$HOME/code/DataScience/ThinkStats/:$HOME/code/DataScience/ThinkStats/utils:$HOME/code/Python/Adventure:$HOME/code/Python/RoguelikeLibtcod/tutorial"
-
-export JAVA_HOME="$(which java)"
-export PATH=$PATH:$JAVA_HOME/bin
 export CATALINA_HOME=/usr/share/tomcat8
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -96,15 +86,12 @@ export NVS_HOME="$HOME/.nvs"
 # LS_COLORS
 eval $(dircolors -b $HOME/.dircolors)
 
-# nodejs
-export PATH=$PATH:~/.nvs/node/11.10.0/x64/bin
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # kubectl auto-completion
 if [ ! -z $(command -v kubectl) ]
 then
 source <(kubectl completion zsh)
 complete -o default -F __start_kubectl k8s
 fi
+
+# CR space for autocompleting
+bindkey '^k' autosuggest-accept
