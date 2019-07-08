@@ -19,6 +19,9 @@ Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install && npm install -g tern'}
 Plug 'carlitux/deoplete-ternjs'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -91,3 +94,9 @@ set listchars=tab:\ \ ,trail:·
 
 " clear all trailing whitespace on save
 autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" easier navigation
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
