@@ -30,7 +30,7 @@ font pango:System Source Code Pro 10, FontAwesome 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec sakura
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -166,12 +166,13 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-bindsym --release $mod+x exec --no-startup-id import ~/screens/latest.png
+bindsym --release $mod+x exec --no-startup-id import ~/screens/`date '+%Y-%m-%d-%H-%M-%S'`.png
+#bindsym --release $mod+x exec scrot -s -e 'mv $f ~/screens'
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	position top
+	position bottom
         font pango:System Source Code Pro 10, FontAwesome 10
         strip_workspace_numbers yes
         status_command i3blocks
@@ -193,7 +194,8 @@ bindsym $mod+p exec $HOME/.config/i3/scripts/lock.sh
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # run rofi on $mod+d
-bindsym $mod+d exec rofi -show run -terminal urxvtc
+# bindsym $mod+d exec rofi -show run -terminal urxvtc
+bindsym $mod+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 12'
 
 # disable title bar
 for_window [class="^.*"] border pixel 1
@@ -201,3 +203,6 @@ new_window 1pixel
 
 # change border colour on focused window
 client.focused #000000 #000000 #000000 #000000
+
+# https://github.com/vivien/i3blocks-contrib/tree/master/calendar#installation
+for_window [class="Yad"] floating enable
