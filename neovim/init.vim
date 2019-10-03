@@ -40,7 +40,6 @@ Plug 'idris-hackers/idris-vim'
 Plug 'Numkil/ag.nvim'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'parsonsmatt/intero-neovim'
-Plug 'derekelkins/agda-vim'
 Plug 'purescript-contrib/purescript-vim'
 Plug 'unblevable/quick-scope'
 
