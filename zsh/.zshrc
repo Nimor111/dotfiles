@@ -5,10 +5,9 @@ export ZSH=$HOME/.oh-my-zsh
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 # PATH
-export PATH=$PATH:/usr/bin/javac:$HOME/.gem/ruby/2.4.0/bin:/bin/stylish-haskell:$HOME/.cabal/bin:$HOME/.local/bin/:$GOPATH/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/.cargo/bin/racer:$HOME/.pub-cache/bin:$HOME/.nvs/node/11.10.0/x64/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$JAVA_HOME/bin:$HOME/.rvm/bin
+export PATH=$PATH:/usr/bin/javac:$HOME/.gem/ruby/2.4.0/bin:/bin/stylish-haskell:$HOME/.cabal/bin:$HOME/.local/bin/:$GOPATH/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/.cargo/bin/racer:$HOME/.pub-cache/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$JAVA_HOME/bin:$HOME/.rvm/bin:$HOME/idris-jvm/codegen/bin/
 
 # custom motd
-cowsay "Hello there!"
 neofetch
 
 # Set name of the theme to load.
@@ -93,5 +92,8 @@ source <(kubectl completion zsh)
 complete -o default -F __start_kubectl k8s
 fi
 
-# CR space for autocompleting
-bindkey '^k' autosuggest-accept
+# set node js
+nvs 10.14.2
+
+# nix
+source /home/gbojinov/.nix-profile/etc/profile.d/nix.sh
